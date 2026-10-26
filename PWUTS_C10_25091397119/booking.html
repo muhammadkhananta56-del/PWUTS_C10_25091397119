@@ -1,0 +1,36 @@
+<section class="page-intro page-intro-narrow"><span class="eyebrow">FORM BOOKING</span><h1>Booking bertahap,<br><span>lebih mudah diperiksa.</span></h1><p>Isi data pada setiap tahap. Sebelum dikirim, kamu dapat memeriksa ringkasan layanan, detail sepatu, dan estimasi biaya.</p></section>
+<div class="booking-layout">
+  <section class="booking-main card-panel">
+    <div class="progress-top"><div><span id="step-label">LANGKAH 1 DARI 3</span><strong id="step-title">Pilih layanan</strong></div><span class="progress-count" id="progress-count">33%</span></div>
+    <div class="progress-track"><span id="progress-bar" style="width:33.333%"></span></div>
+    <form id="booking-form" novalidate>
+      <div class="booking-step active" data-step="1">
+        <h2>Layanan yang kamu butuhkan</h2><p class="form-subtitle">Pilih jenis perawatan dan berapa pasang sepatu yang akan dirawat.</p>
+        <div class="service-options">
+          <label class="service-option"><input type="radio" name="service_id" value="1" required><span class="option-check">✓</span><span><b>Fast Clean</b><small>Basic cleaning · 1–2 hari</small></span><strong>Rp35.000</strong></label>
+          <label class="service-option selected"><input type="radio" name="service_id" value="2" checked required><span class="option-check">✓</span><span><b>Deep Clean</b><small>Full cleaning · 2–3 hari</small></span><strong>Rp55.000</strong></label>
+          <label class="service-option"><input type="radio" name="service_id" value="3" required><span class="option-check">✓</span><span><b>Premium Care</b><small>Detail care · 3–4 hari</small></span><strong>Rp85.000</strong></label>
+        </div>
+        <div class="form-grid"><div class="form-field"><label for="shoe_count">Jumlah pasang sepatu <span>*</span></label><select id="shoe_count" name="shoe_count" required><option value="1">1 pasang</option><option value="2">2 pasang</option><option value="3">3 pasang</option><option value="4">4 pasang</option><option value="5">5 pasang</option></select></div><div class="form-field"><label for="shoe_type">Jenis / bahan sepatu <span>*</span></label><input id="shoe_type" name="shoe_type" required maxlength="100" placeholder="Contoh: sneakers canvas"></div></div>
+        <div class="form-field"><label for="shoe_notes">Catatan kondisi sepatu <small>(opsional)</small></label><textarea id="shoe_notes" name="shoe_notes" rows="3" maxlength="500" placeholder="Contoh: ada noda lumpur di bagian outsole"></textarea></div>
+      </div>
+      <div class="booking-step" data-step="2">
+        <h2>Detail pelanggan</h2><p class="form-subtitle">Gunakan nomor yang aktif agar pihak Step Clean dapat menghubungi kamu.</p>
+        <div class="form-grid"><div class="form-field"><label for="customer_name">Nama lengkap <span>*</span></label><input id="customer_name" name="customer_name" autocomplete="name" required maxlength="100" placeholder="Nama kamu"></div><div class="form-field"><label for="phone">Nomor WhatsApp / telepon <span>*</span></label><input id="phone" name="phone" inputmode="tel" autocomplete="tel" required maxlength="20" placeholder="08xxxxxxxxxx"></div></div>
+        <div class="form-field"><label for="email">Email <small>(opsional)</small></label><input id="email" name="email" type="email" autocomplete="email" maxlength="150" placeholder="nama@email.com"></div>
+        <div class="form-field"><label for="service_mode">Metode serah terima <span>*</span></label><div class="radio-cards"><label><input type="radio" name="service_mode" value="dropoff" checked><span><b>Antar ke toko</b><small>Saya mengantar sepatu</small></span></label><label><input type="radio" name="service_mode" value="pickup"><span><b>Jemput / antar</b><small>Perlu konfirmasi area dan biaya</small></span></label></div></div>
+        <div id="address-wrap" class="form-field hidden"><label for="address">Alamat lengkap <span>*</span></label><textarea id="address" name="address" rows="3" maxlength="500" placeholder="Alamat, kecamatan, patokan"></textarea><p class="field-help">Ketersediaan area dan biaya antar-jemput perlu dikonfirmasi oleh admin.</p></div>
+        <div class="form-field"><label for="preferred_date">Tanggal rencana serah terima <span>*</span></label><input id="preferred_date" name="preferred_date" type="date" required><small class="field-help">Tanggal ini merupakan preferensi, bukan konfirmasi jadwal.</small></div>
+      </div>
+      <div class="booking-step" data-step="3">
+        <h2>Ringkasan transaksi</h2><p class="form-subtitle">Pastikan informasi sudah benar sebelum mengirim booking.</p>
+        <div id="transaction-summary" class="summary-card"></div>
+        <label class="consent-check"><input type="checkbox" id="confirm-data" required><span>Saya memeriksa dan menyetujui data booking di atas untuk dikirim ke Step Clean.</span></label>
+        <div class="notice-inline">Pesanan baru berstatus <b>Menunggu Konfirmasi</b>. Estimasi waktu dan biaya antar-jemput dapat berubah setelah dikonfirmasi pihak Step Clean.</div>
+      </div>
+      <div id="booking-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+      <div class="form-actions"><button type="button" class="button button-outline" id="previous-step" disabled>← Kembali</button><button type="button" class="button" id="next-step">Lanjutkan <span>→</span></button><button type="submit" class="button hidden" id="submit-booking">Kirim Booking <span>↗</span></button></div>
+    </form>
+  </section>
+  <aside class="booking-aside"><div class="aside-card"><span class="aside-kicker">RINGKASAN SEMENTARA</span><div class="aside-price" id="aside-price">Rp55.000</div><span class="aside-caption">estimasi biaya layanan</span><div class="aside-divider"></div><div class="aside-row"><span>Layanan</span><strong id="aside-service">Deep Clean</strong></div><div class="aside-row"><span>Jumlah</span><strong id="aside-count">1 pasang</strong></div><div class="aside-row"><span>Estimasi selesai</span><strong id="aside-duration">2–3 hari</strong></div><p class="aside-note">Estimasi belum termasuk biaya antar-jemput. Harga adalah contoh dan harus dikonfirmasi.</p></div><div class="help-card"><span>✦</span><div><b>Butuh bantuan?</b><p>Kontak resmi dan jam operasional belum tersedia pada proposal.</p><small>[DATA KONTAK BELUM TERSEDIA]</small></div></div></aside>
+</div>
